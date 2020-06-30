@@ -110,10 +110,33 @@ function gutenberg_practice_02_render_paragraph( $attributes, $content ) {
  * Register Template
  */
 function gutenberg_practice_02_register_template() {
-	$post_type_object = get_post_type_object( 'post' );
+	$post_type_object           = get_post_type_object( 'post' );
 	$post_type_object->template = array(
 		array( 'gutenberg-practice-02/meta-block' ),
 	);
 }
 add_action( 'init', 'gutenberg_practice_02_register_template' );
+
+/**
+ * 'admin_notices' アクションにフックして、
+ * 一般的な HTML 通知をレンダリングする
+ */
+function myguten_admin_notice() {
+	$screen = get_current_screen();
+	// この通知は投稿エディターでのみレンダリングする.
+	if ( ! $screen || 'post' !== $screen->base ) {
+		return;
+	}
+	// 通知の HTML をレンダリングする.
+	// 通知は 'notice' クラスの <div> で囲む.
+	echo '<div class="notice notice-success is-dismissible"><p>';
+
+	echo sprintf(
+		// translators: post draft Updated and link.
+		wp_kses_post( __( 'Post draft updated. <a href="%s" target="_blank">Preview post</a>' ) ),
+		esc_url( get_preview_post_link() )
+	);
+	echo '</p></div>';
+};
+add_action( 'admin_notices', 'myguten_admin_notice' );
 

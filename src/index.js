@@ -39,3 +39,20 @@ registerBlockType( 'gutenberg-practice-02/meta-block', {
 		return null;
 	},
 } );
+
+( function( wp ) {
+	wp.data.dispatch( 'core/notices' ).createNotice(
+		'success', // 次のどれか: success, info, warning, error.
+		'Post published.', // 出力されるテキスト文字列
+		{
+			isDismissible: true, // ユーザーが通知を消せるかどうか
+			// ユーザーが実行可能な任意のアクション
+			actions: [
+				{
+					url: '#',
+					label: 'View post',
+				},
+			],
+		}
+	);
+} )( window.wp );
