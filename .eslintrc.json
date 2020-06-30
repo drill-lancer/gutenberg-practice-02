@@ -1,17 +1,8 @@
 {
 	"extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
-	"plugins": ["react"],
-	"parser": "babel-eslint",
-	"parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        }
-    },
     "rules": {
         "no-var": "error",
-        "comma-dangle": ["error", "never"],
+        "comma-dangle": ["error", "always-multiline"],
         "no-console": "off",
         "require-jsdoc": "off",
         "valid-jsdoc": "off",
