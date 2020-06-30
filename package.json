@@ -1,0 +1,23 @@
+{
+  "name": "gutenberg-practice-02",
+  "version": "1.0.0",
+  "description": "gutenberg-practice-02",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drill-lancer/gutenberg-practice-02.git"
+  },
+  "author": "DRILL LANCER",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/drill-lancer/gutenberg-practice-02/issues"
+  },
+  "homepage": "https://github.com/drill-lancer/gutenberg-practice-02#readme",
+  "dependencies": {
+    "@wordpress/scripts": "^12.0.0"
+  }
+}
